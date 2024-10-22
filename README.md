@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 `Detail Page`: Provides detailed information about a specific Pokemon, including its height, weight, and types.
 
 ## Getting Started
-npm install 
+`npm install `
 
 First, run the development server:
 
