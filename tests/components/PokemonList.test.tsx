@@ -38,6 +38,8 @@ describe("PokemonList", () => {
 
     await waitFor(() => {
       expect(screen.getByText("bulbasaur")).toBeInTheDocument();
+
+      // these will not be in the document
       expect(screen.queryByText("charmander")).not.toBeInTheDocument();
       expect(screen.queryByText("squirtle")).not.toBeInTheDocument();
     });

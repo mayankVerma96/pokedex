@@ -132,7 +132,7 @@ export default PokemonList;
 //         setHasMore(false);
 //       }
 //     } catch (error) {
-//       console.error("Failed to load more Pokémon:", error);
+//       console.error("Failed to load more:", error);
 //     } finally {
 //       setIsLoading(false);
 //     }
@@ -217,7 +217,7 @@ export default PokemonList;
 //       </ul>
 
 //       {isLoading && <p className="text-center mt-10">Loading more...</p>}
-//       {!hasMore && <p className="text-center mt-10">No more Pokémon to load</p>}
+//       {!hasMore && <p className="text-center mt-10">No more to load</p>}
 //     </div>
 //   );
 // };

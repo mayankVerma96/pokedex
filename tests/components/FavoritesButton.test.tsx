@@ -43,14 +43,12 @@ describe("FavoriteButton", () => {
     // Initial state should show "Add"
     expect(screen.getByText("Add")).toBeInTheDocument();
 
-    // Click the button to add to favorites
     fireEvent.click(screen.getByRole("button"));
 
     await waitFor(() => {
       // Button should now show "Remove"
       expect(screen.getByText("Remove")).toBeInTheDocument();
 
-      // Check if item was added to localStorage
       const storedFavorites = JSON.parse(
         localStorage.getItem("favorites") || "[]"
       );
@@ -60,22 +58,17 @@ describe("FavoriteButton", () => {
   });
 
   it("should remove item from favorites when clicked again", async () => {
-    // Initialize localStorage with the item already in favorites
     localStorage.setItem("favorites", JSON.stringify([mockPokemon]));
 
     render(<FavoriteButton item={mockPokemon} />);
 
-    // Initial state should show "Remove"
     expect(screen.getByText("Remove")).toBeInTheDocument();
 
-    // Click the button to remove from favorites
     fireEvent.click(screen.getByRole("button"));
 
     await waitFor(() => {
-      // Button should now show "Add"
       expect(screen.getByText("Add")).toBeInTheDocument();
 
-      // Check if item was removed from localStorage
       const storedFavorites = JSON.parse(
         localStorage.getItem("favorites") || "[]"
       );
@@ -84,12 +77,10 @@ describe("FavoriteButton", () => {
   });
 
   it("should load initial favorite state from localStorage", async () => {
-    // Initialize localStorage with some favorites
     localStorage.setItem("favorites", JSON.stringify([mockPokemon]));
 
     render(<FavoriteButton item={mockPokemon} />);
 
-    // Should show "Remove" since item is in favorites
     expect(screen.getByText("Remove")).toBeInTheDocument();
   });
 
@@ -99,12 +90,10 @@ describe("FavoriteButton", () => {
       url: "https://pokeapi.co/api/v2/pokemon/6/",
     };
 
-    // Initialize localStorage with one pokemon
     localStorage.setItem("favorites", JSON.stringify([anotherPokemon]));
 
     render(<FavoriteButton item={mockPokemon} />);
 
-    // Click to add another pokemon
     fireEvent.click(screen.getByRole("button"));
 
     await waitFor(() => {
