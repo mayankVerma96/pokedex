@@ -1,6 +1,18 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Deployment Link -> https://pokedex-tan-nine-53.vercel.app/
+
+## Features
+`Pokemon List`: Displays a list of Pokemon fetched from the Pokemon API, with the ability to load more Pokemon on scroll.
+
+`Search Functionality`: Allows users to search for Pokemon by name.
+
+`Favorites Management`: Users can add or remove Pokemon from their favorites, stored in the local storage.
+
+`Detail Page`: Provides detailed information about a specific Pokemon, including its height, weight, and types.
+
 
 ## Getting Started
+`npm install `
 
 First, run the development server:
 
