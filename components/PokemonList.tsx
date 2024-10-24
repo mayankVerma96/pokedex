@@ -15,9 +15,9 @@ const PokemonList = ({ pokemonList }: { pokemonList: PokemonListItem[] }) => {
   );
   const [hasMore, setHasMore] = useState(true);
 
-  useEffect(() => {
-    loadMore();
-  }, []);
+  //   useEffect(() => {
+  //     loadMore();
+  //   }, []);
 
   const loadMore = () => {
     const currentLength = displayedPokemon.length;
@@ -47,7 +47,7 @@ const PokemonList = ({ pokemonList }: { pokemonList: PokemonListItem[] }) => {
     );
 
     setDisplayedPokemon(filteredPokemon.slice(0, ITEMS_PER_PAGE));
-
+    console.log("filteredPokemon", filteredPokemon.slice(0, ITEMS_PER_PAGE));
     // Reset hasMore since filtering
     setHasMore(filteredPokemon.length > ITEMS_PER_PAGE);
   }, [searchQuery, pokemonList]);
