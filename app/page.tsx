@@ -12,10 +12,10 @@ export default async function Home() {
     pokemonList = response.results;
 
     if (!pokemonList || pokemonList.length === 0) {
-      error = "No Pokémon found.";
+      error = "Cant find any Pokemon.";
     }
   } catch (e) {
-    error = "Failed to fetch Pokémon data.";
+    error = "Failed to fetch the data.";
   }
 
   if (error) {

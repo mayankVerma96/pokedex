@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import axios from "axios";
 import PokemonList from "../../components/PokemonList";
+import Home from "../../app/page";
 
 jest.mock("axios");
 
@@ -53,6 +54,30 @@ describe("PokemonList", () => {
 
     await waitFor(() => {
       expect(screen.getByText("No items found")).toBeInTheDocument();
+    });
+  });
+
+  test("should display error when no Pokemon found", async () => {
+    (axios.get as jest.Mock).mockResolvedValue({
+      data: { results: [] },
+    });
+
+    render(<Home />);
+
+    await waitFor(() => {
+      expect(screen.getByText("No Pokemon found.")).toBeInTheDocument();
+    });
+  });
+
+  test("should display error when API call fails", async () => {
+    (axios.get as jest.Mock).mockRejectedValue(new Error("Failed to fetch"));
+
+    render(<Home />);
+
+    await waitFor(() => {
+      expect(
+        screen.getByText("Failed to fetch Pokemon data.")
+      ).toBeInTheDocument();
     });
   });
 });
